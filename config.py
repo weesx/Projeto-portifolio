@@ -1,2 +1,2 @@
 email = 'buenoweslei2@gmail.com'
-senha = 'Barbearia1950'
+senha = 'fgtl cdxt oicq armk'

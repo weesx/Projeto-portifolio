@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, flash
 from flask_mail import Mail, Message
 from config import email, senha
+
 app = Flask(__name__)
 app.secret_key = 'weesbueno1950'
 
@@ -8,22 +9,21 @@ mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
-    "MAIL_USE_TLS": True,
+    "MAIL_USE_SSL": True,
     "MAIL_USERNAME": email,
-    "MAIL_USERNAME": senha
+    "MAIL_PASSWORD": senha# Use a senha de aplicativo gerada
 }
 
-app.config.update({mail_settings})
+
+app.config.update(mail_settings)
 
 mail = Mail(app)
 
 class Contato:
     def __init__(self, nome, email, mensagem):
-        self.nome = nome,
-        self.email = email,
+        self.nome = nome
+        self.email = email
         self.mensagem = mensagem
-
-
 
 @app.route('/')
 def index():
@@ -39,16 +39,17 @@ def send():
         )
 
         msg = Message(
-            subject= f'{formContato.nome} te enviou uma mensagem no portfólio'
-            sender= app.config.get("MAIL_USERNAME"),
-            recipients= ['weslei002@gmail.com', app.config.get("MAIL_USERNAME")],
-            body= f'''
-                {formContato.nome} com o e-email {formContato.email}, te enviou a seguinte mensagem:
+            subject='{} te enviou uma mensagem no portfólio'.format(formContato.nome),
+            sender=app.config.get("MAIL_USERNAME"),
+            recipients=['weslei002@gmail.com', app.config.get("MAIL_USERNAME")],
+            body='''
+                {} com o e-mail {}, te enviou a seguinte mensagem:
 
-                {formContato.mensagem}
+                {}
 
-            '''
+            '''.format(formContato.nome, formContato.email, formContato.mensagem)
         )
+
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect('/')
