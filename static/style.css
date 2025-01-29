@@ -150,25 +150,40 @@ i.menu-mobile {
 }
 
 @media (max-width: 1024px) {
-
+    /* Esconde o menu lateral */
     #header {
         left: -300px;
+        transition: left 0.3s ease-in-out; /* Adiciona transição suave */
     }
-    i.menu-mobile{
+
+    /* Exibe o ícone do menu mobile */
+    i.menu-mobile {
         display: flex;
+        z-index: 9999; /* Garante que o ícone fique acima de outros elementos */
     }
-    section#inicio{
-        height: 100vh;
+
+    /* Ajustes para a seção "Início" */
+    section#inicio {
+        height: 100vh; /* Mantém a altura total da viewport */
+        padding: 20px; /* Adiciona um pouco de espaço interno */
     }
-    section#inicio h2{
-        font-size: 3.5rem;
+
+    section#inicio h2 {
+        font-size: 3.5rem; /* Reduz o tamanho da fonte do título */
+        margin-right: 0; /* Remove a margem direita */
+        text-align: center; /* Centraliza o texto */
     }
-    section#inicio span#subtitle{
-        margin-right: 0;
-        font-size: 1rem;
+
+    section#inicio span#subtitle {
+        margin-right: 0; /* Remove a margem direita */
+        font-size: 1rem; /* Reduz o tamanho da fonte do subtítulo */
+        text-align: center; /* Centraliza o texto */
     }
-    #main{
-        margin-left: 0;
+
+    /* Ajusta o conteúdo principal */
+    #main {
+        margin-left: 0; /* Remove a margem esquerda */
+        transition: margin-left 0.3s ease-in-out; /* Adiciona transição suave */
     }
 }
 
@@ -271,4 +286,44 @@ background-color: #fff;
 
 .btn:hover {
     background-color: #0056b3;
+}
+
+[data-anime] {
+    opacity: 0;
+    transition: all 1s ease; /* Adiciona a duração da transição e tipo */
+}
+
+[data-anime='down'] {
+    transform: translate3d(0, -100%, 0);
+}
+
+[data-anime='up'] {
+    transform: translate3d(0, 100%, 0); /* Corrigido sinal positivo */
+}
+
+[data-anime='left'] {
+    transform: translate3d(-100%, 0, 0);
+}
+
+[data-anime='right'] {
+    transform: translate3d(100%, 0, 0); /* Corrigido sinal positivo */
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0)
+}
+
+@media (max-width: 1860px){
+    .carousel-inner-control-prev{
+        margin-left: 0;
+    }
+
+    .carousel-inner-control-next{
+        margin-right: 0;
+    }
+
+    [data-anime="right"]{
+        transform: translate3d(0, 100%, 0);
+    }
 }
