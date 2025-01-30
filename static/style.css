@@ -52,6 +52,11 @@ html, body {
     border-radius: 50%;
     transition: 0.3s;
     text-decoration: none;
+    display: inline-flex; /* Mantém o ícone centralizado */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 40px; /* Largura fixa para manter formato */
+    height: 40px; /* Altura fixa para manter formato */
 }
 
 #header .profile .social-links a:hover {
@@ -224,12 +229,41 @@ background-color: #fff;
 
 #carouselPortfolio {
     background-color: #000000; /* Fundo preto do carrossel */
+    height: 800px; 
+    overflow: hidden;
 }
 
 #carouselPortfolio .carousel-inner img {
     margin: 0 auto;
+    max-width: 80%; /* Reduz o tamanho máximo das imagens */
+    height: auto; /* Mantém a proporção das imagens */
+    object-fit: contain;
+}
+
+#carouselPortfolio .carousel-inner video {
+    margin: 0 auto;
     max-width: 40%; /* Reduz o tamanho máximo das imagens */
     height: auto; /* Mantém a proporção das imagens */
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    #carouselPortfolio {
+        height: 250px; /* Reduz a altura do carrossel em telas menores */
+    }
+
+    #carouselPortfolio .carousel-inner img,
+    #carouselPortfolio .carousel-inner video {
+        max-width: 100%; /* Garantir que o conteúdo ocupe 100% da largura */
+        height: auto; /* Ajusta a altura automaticamente para não distorcer */
+    }
+}
+
+/* Media Query para telas médias (tablets) */
+@media (max-width: 1024px) {
+    #carouselPortfolio {
+        height: 300px; /* Ajuste para tablets */
+    }
 }
 
 #portfolio h2 {
@@ -359,4 +393,46 @@ background-color: #fff;
 
 .test {
     overflow-x: hidden;
+}
+
+/* Define um botão fixo no canto superior direito */
+.fixed-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s;
+    z-index: 9999;
+}
+
+/* Efeito de hover no botão */
+.fixed-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .fixed-button {
+        top: 10px;
+        right: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-button {
+        top: 8px;
+        right: 8px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 }

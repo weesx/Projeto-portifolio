@@ -10,13 +10,20 @@ menuMobile.addEventListener('click', () =>{
 body.classList.toggle("menu-nav-active");
 });
 
-// Inicializa o carrossel com um intervalo de 5 segundos (5000 ms)
-var myCarousel = document.querySelector('#carouselPortfolio');
-var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 5000, // Tempo em milissegundos
-    wrap: true // Faz o carrossel voltar ao início após o fim
-});
+    // Inicializar o carrossel com intervalo de 5 segundos
+    var myCarousel = document.querySelector('#carouselPortfolio');
+    var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 5000, // Tempo em milissegundos
+        wrap: true // Faz o carrossel voltar ao início após o fim
+    });
 
+    // Adicionar evento para detectar quando o vídeo termina
+    var portfolioVideo = document.getElementById('portfolioVideo');
+    
+    portfolioVideo.onended = function() {
+        // Quando o vídeo terminar, o carrossel continuará automaticamente para o próximo item
+        carousel.next();
+    };
 // animar itens
 
 const item = document.querySelectorAll("[data-anime]");
