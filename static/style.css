@@ -101,10 +101,18 @@ section#inicio {
     background-image: url("../static/img/cortandocabelo2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     background-position: center;
+    background-attachment: fixed;
     width: 100%;
     height: 100vh;
+}
+
+@media (max-width: 768px) {
+    section#inicio {
+        background-attachment: scroll; /* Remove o fundo fixo em mobile */
+        height: auto; /* Altura automática */
+        min-height: 100vh; /* Garante que cubra a tela */
+    }
 }
 
 section#inicio h2 {
@@ -114,7 +122,7 @@ section#inicio h2 {
 }
 
 section#inicio span#subtitle {
-    margin-right: 8rem;
+    margin-right: -5rem;
     font-size: 1.5rem;
 }
 
@@ -157,42 +165,23 @@ i.menu-mobile {
 }
 
 @media (max-width: 1024px) {
-    /* Esconde o menu lateral */
     #header {
-        left: -300px;
-        transition: left 0.3s ease-in-out; /* Adiciona transição suave */
+      left: -300px;
     }
-
-    /* Exibe o ícone do menu mobile */
-    i.menu-mobile {
-        display: flex;
-        z-index: 9999; /* Garante que o ícone fique acima de outros elementos */
+    i.menu-mobile{
+      display: flex;
     }
-
-    /* Ajustes para a seção "Início" */
-    section#inicio {
-        height: 100vh; /* Mantém a altura total da viewport */
-        padding: 20px; /* Adiciona um pouco de espaço interno */
+    section#inicio h2{
+      font-size: 3.5rem ;
     }
-
-    section#inicio h2 {
-        font-size: 3.5rem; /* Reduz o tamanho da fonte do título */
-        margin-right: 0; /* Remove a margem direita */
-        text-align: center; /* Centraliza o texto */
+    section#inicio span#subtitle{
+      margin-right: 0;
+      font-size: 1rem;
     }
-
-    section#inicio span#subtitle {
-        margin-right: 0; /* Remove a margem direita */
-        font-size: 1rem; /* Reduz o tamanho da fonte do subtítulo */
-        text-align: center; /* Centraliza o texto */
+    #main{
+        margin-left: 0;
     }
-
-    /* Ajusta o conteúdo principal */
-    #main {
-        margin-left: 0; /* Remove a margem esquerda */
-        transition: margin-left 0.3s ease-in-out; /* Adiciona transição suave */
-    }
-}
+  }
 
 *::-webkit-scrollbar {
     width: 10px;
