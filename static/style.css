@@ -4,6 +4,7 @@ html, body {
     font-family: Ubuntu, Arial;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 #header {
@@ -164,6 +165,7 @@ i.menu-mobile {
 
     /* Ajustes para a seção "Início" */
     section#inicio {
+        background-attachment: scroll;
         height: 100vh; /* Mantém a altura total da viewport */
         padding: 20px; /* Adiciona um pouco de espaço interno */
     }
