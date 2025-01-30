@@ -27,8 +27,10 @@ const animeScroll = () => {
     item.forEach((element) => {
         if(windowTop > element.offsetTop) {
             element.classList.add("animate");
+            element.classList.remove("test");
         } else {
             element.classList.remove("animate");
+            element.classList.add("test");
         }
     });
 };

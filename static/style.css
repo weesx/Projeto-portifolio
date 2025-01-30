@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
-    font-family: Ubuntu, Arial;
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
 }
 
 #header {
@@ -165,7 +172,6 @@ i.menu-mobile {
 
     /* Ajustes para a seção "Início" */
     section#inicio {
-        background-attachment: scroll;
         height: 100vh; /* Mantém a altura total da viewport */
         padding: 20px; /* Adiciona um pouco de espaço interno */
     }
@@ -292,43 +298,44 @@ background-color: #fff;
 
 [data-anime] {
     opacity: 0;
-    transition: all 1s ease; /* Adiciona a duração da transição e tipo */
-}
-
-[data-anime='down'] {
+    transition: 1s;
+  }
+  
+  [data-anime="down"] {
     transform: translate3d(0, -100%, 0);
-}
-
-[data-anime='up'] {
-    transform: translate3d(0, 100%, 0); /* Corrigido sinal positivo */
-}
-
-[data-anime='left'] {
+  }
+  
+  [data-anime="up"] {
+    transform: translate3d(0, 100%, 0);
+  }
+  
+  [data-anime="left"] {
     transform: translate3d(-100%, 0, 0);
-}
-
-[data-anime='right'] {
-    transform: translate3d(100%, 0, 0); /* Corrigido sinal positivo */
-}
-
-[data-anime].animate {
+  }
+  
+  [data-anime="right"] {
+    transform: translate3d(50px ,0 ,0);
+  }
+  
+  [data-anime].animate {
     opacity: 1;
-    transform: translate3d(0, 0, 0)
-}
+    transform: translate3d(0 ,0 ,0);
+  }
+  
 
-@media (max-width: 1860px){
-    .carousel-inner-control-prev{
-        margin-left: 0;
+  @media (max-width: 1860px){
+    .carousel-control-prev{
+      margin-left: 0;
     }
-
-    .carousel-inner-control-next{
-        margin-right: 0;
+    
+    .carousel-control-next{
+      margin-right: 0;
     }
-
-    [data-anime="right"]{
-        transform: translate3d(0, 100%, 0);
+  
+    [data-anime="right"] {
+      transform: translate3d(0, 100%, 0);
     }
-}
+  }
 
 #btn-enviar-loader{
     display: none;
@@ -360,4 +367,8 @@ background-color: #fff;
         width: auto;
         padding: 20px 15px;
     }
+}
+
+.test {
+    overflow-x: hidden;
 }
